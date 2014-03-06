@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+        
+      
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        <TextView
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:text="Daily Survey"
+      			    android:textSize="30sp"
+      			    android:textStyle="bold"
+      			 />
+        </LinearLayout>
+       
+        
+  <ScrollView android:layout_width="wrap_content" android:layout_height="fill_parent">
+         
+   <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+      
+      			<TextView
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:text="How many hours did you sleep yesterday night?"
+      			    android:textSize="16sp"
+      			 />
+      
+      			<RadioGroup
+                android:id="@+id/radioSleep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+         
+                <RadioButton
+                    android:id="@+id/lessthan7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Less than 7"
+                    android:checked="true" />
+         
+                <RadioButton
+                    android:id="@+id/seven"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7" />
+                <RadioButton
+                    android:id="@+id/eight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8" />
+                <RadioButton
+                    android:id="@+id/nine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9" />
+                <RadioButton
+                    android:id="@+id/greaterthan9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Greater than 9" />
+         		</RadioGroup>
+         
+      			
+      			<TextView
+      			   android:layout_width="wrap_content"
+      			   android:layout_height="wrap_content"
+      			   android:text="Did you have two proper meals today?"
+      			   android:textSize="16sp"
+      			 />
+      
+      			<RadioGroup
+                android:id="@+id/radioAppetite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+         
+                <RadioButton
+                    android:id="@+id/yesMeal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:checked="true" />
+         
+                <RadioButton
+                    android:id="@+id/noMeal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No" />
+                </RadioGroup>
+                
+      			<TextView
+      			   android:layout_width="wrap_content"
+      			   android:layout_height="wrap_content"
+      			   android:text="Select the activities that you did today."
+      			   android:textSize="16sp"
+      			 />
+                
+      			<CheckBox 	android:id="@+id/checkActivityWork"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Go to work/college"
+							
+				/>"
+                
+                <CheckBox 	android:id="@+id/checkActivityExercise"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Exercise"
+				/>
+                
+                <CheckBox 	android:id="@+id/checkActivityTV"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Watch TV/ Use a computer"
+				/>
+                <CheckBox 	android:id="@+id/checkActivityLeave"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Leave house for more than 2 hours for other work"
+				/>
+                  <TextView
+      			   android:layout_width="wrap_content"
+      			   android:layout_height="wrap_content"
+      			   android:text="Did you suffer from any of these today? Select all that apply"
+      			   android:textSize="16sp"
+      			 />
+                
+      			<CheckBox 	android:id="@+id/checkSickHeadache"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Headache"
+				/>
+      			<CheckBox 	android:id="@+id/checkSickPanic"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Panic attack"
+				/>
+      			<CheckBox 	android:id="@+id/checkSickTired"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Excessive tiredness"
+				/>
+      			<CheckBox 	android:id="@+id/checkSickRestless"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Restlessness"
+				/>
+      			<CheckBox 	android:id="@+id/checkSickAnger"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Anger"
+				/>
+                  
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit" />
+            
+    
+     
+    </LinearLayout>
+      </ScrollView>
+      </LinearLayout>
+     

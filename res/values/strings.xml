@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Mental Health Monitor</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_display_message">DisplayMessageActivity</string>
+    <string name="btStart">Start</string>
+    <string name="btCancel">Cancel</string>
+    <string name="btOneTime">One Time</string>
+    <string name="title_activity_display">Display</string>
+    <string name="title_activity_stop">Stop</string>
+    <string name="title_activity_start_page">StartPage</string>
+
+</resources>
