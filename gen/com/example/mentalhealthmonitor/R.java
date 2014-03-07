@@ -25,28 +25,35 @@ public final class R {
         public static final int mhm=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f080015;
+        public static final int action_settings=0x7f08001c;
+        public static final int avgMeal=0x7f080010;
         public static final int button1=0x7f080001;
         public static final int button2=0x7f080002;
-        public static final int checkActivityExercise=0x7f08000d;
-        public static final int checkActivityLeave=0x7f08000f;
-        public static final int checkActivityTV=0x7f08000e;
-        public static final int checkActivityWork=0x7f08000c;
-        public static final int checkSickAnger=0x7f080014;
-        public static final int checkSickHeadache=0x7f080010;
-        public static final int checkSickPanic=0x7f080011;
-        public static final int checkSickRestless=0x7f080013;
-        public static final int checkSickTired=0x7f080012;
+        public static final int checkActivityExercise=0x7f080016;
+        public static final int checkActivityLeave=0x7f080018;
+        public static final int checkActivityTV=0x7f080017;
+        public static final int checkActivityWork=0x7f080015;
+        public static final int checkAnger=0x7f080014;
+        public static final int checkHopeless=0x7f080012;
+        public static final int checkPanicky=0x7f080011;
+        public static final int checkRestless=0x7f080013;
+        public static final int checkSickHeadache=0x7f080019;
+        public static final int checkSickSweating=0x7f08001b;
+        public static final int checkSickTiredness=0x7f08001a;
         public static final int eight=0x7f080006;
         public static final int greaterthan9=0x7f080008;
         public static final int lessthan7=0x7f080004;
         public static final int nine=0x7f080007;
-        public static final int noMeal=0x7f08000b;
-        public static final int radioAppetite=0x7f080009;
+        public static final int no2sleep=0x7f08000c;
+        public static final int noMeal=0x7f08000f;
+        public static final int overMeal=0x7f08000e;
+        public static final int radio2sleep=0x7f08000a;
+        public static final int radioAppetite=0x7f08000d;
         public static final int radioSleep=0x7f080003;
         public static final int seven=0x7f080005;
         public static final int textView1=0x7f080000;
-        public static final int yesMeal=0x7f08000a;
+        public static final int tv2sleep=0x7f080009;
+        public static final int yes2sleep=0x7f08000b;
     }
     public static final class layout {
         public static final int activity_display=0x7f030000;

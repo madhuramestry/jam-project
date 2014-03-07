@@ -2,9 +2,9 @@ package com.example.mentalhealthmonitor;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -12,6 +12,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.CallLog;
@@ -26,19 +27,28 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 	
 	private RadioGroup radioSleepGroup;
-    private RadioButton radioSleepButton;
-    private RadioGroup radioAppetiteGroup;
-    private RadioButton radioAppetiteButton;
-    private CheckBox checkWorkButton;
-    private CheckBox checkExerciseButton;
+	private RadioButton radioSleepButton;
+	private RadioGroup radioTrouble2Sleep;
+	private RadioButton radioTrouble2SleepButton;
+	private RadioGroup radioAppetiteGroup;
+	private RadioButton radioAppetiteButton;
+	
+	private CheckBox checkPanickyButton;
+	private CheckBox checkHopelessButton;
+	private CheckBox checkRestlessButton;
+	private CheckBox checkAngerButton;
+	
+	private CheckBox checkWorkButton;
+	private CheckBox checkExerciseButton;
     private CheckBox checkTVButton;
     private CheckBox checkLeaveButton;
+    
     private CheckBox checkHeadacheButton;
-    private CheckBox checkPanicButton;
     private CheckBox checkTiredButton;
-    private CheckBox checkRestlessButton;
-    private CheckBox checkAngerButton;
+    private CheckBox checkSweatingButton;
+    
     private Button btnDisplay;
+    
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,30 +58,65 @@ public class MainActivity extends Activity {
 		String root = Environment.getExternalStorageDirectory().toString();
         File myDir = new File(root + "/mhm_reality_mining");    
         myDir.mkdirs();
-  
-        File fileNet = new File (myDir,"network_statistics");
-        File fileTask= new File (myDir,"application_usage");
-        File fileCall= new File (myDir,"call_log");
-        File fileLocation= new File (myDir,"location_log");
-        File fileSurvey= new File (myDir,"survey_data");
-      
         addListenerOnButton();
 		saveCallData();
-		
-		
-		
-		
+		saveSmsData();
 }
 	
-	
-	public void saveCallData(){
+	public void saveSmsData(){
 		
+		try {
+			
+			Cursor managedCursor = getContentResolver().query(Uri.parse("content://sms/"), null, null, null, null); 
+			int number = managedCursor.getColumnIndex("address"); 
+			int date = managedCursor.getColumnIndex("date"); 
+			
+			String root = Environment.getExternalStorageDirectory().toString();
+	    	String fileName=root+ "/mhm_reality_mining/sms_log";
+	    	
+	    	PrintWriter writer = new PrintWriter(fileName);
+	    	writer.print("");
+	    	writer.close();
+			
+			while (managedCursor.moveToNext()) { 
+				
+				String phNumber = managedCursor.getString(number); 
+				long callDate = managedCursor.getLong(date); 
+				String dateString = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(callDate);
+			
+			
+				
+				String smsLog="\""+phNumber+"\",\""+dateString+"\"\n";
+				
+				
+		        	
+		            FileWriter f = new FileWriter(fileName,true);
+		            f.append(smsLog);
+		            f.close();
+		        
+		       
+			}
+				
+			 } catch (Exception e) {
+		            e.printStackTrace();
+		     }
+			
+	}
+	public void saveCallData(){
+		try {
+			
 		Cursor managedCursor = getContentResolver().query(CallLog.Calls.CONTENT_URI, null, null, null, null); 
 		int number = managedCursor.getColumnIndex(CallLog.Calls.NUMBER); 
 		int type = managedCursor.getColumnIndex(CallLog.Calls.TYPE); 
 		int date = managedCursor.getColumnIndex(CallLog.Calls.DATE); 
 		int duration = managedCursor.getColumnIndex(CallLog.Calls.DURATION);
 		
+		String root = Environment.getExternalStorageDirectory().toString();
+    	String fileName=root+ "/mhm_reality_mining/call_log";
+    	
+    	PrintWriter writer = new PrintWriter(fileName);
+    	writer.print("");
+    	writer.close();
 		
 		while (managedCursor.moveToNext()) { 
 			
@@ -94,17 +139,18 @@ public class MainActivity extends Activity {
 			
 			String callLog="\""+phNumber+"\",\""+dateString+"\",\""+dir+"\","+callDuration+"\n";
 			
-			try {
-	        	String root = Environment.getExternalStorageDirectory().toString();
-	        	String fileName=root+ "/mhm_reality_mining/call_log";
+			
+	        	
 	            FileWriter f = new FileWriter(fileName,true);
 	            f.append(callLog);
 	            f.close();
 	        
-	        } catch (Exception e) {
+	       
+		}
+			
+		 } catch (Exception e) {
 	            e.printStackTrace();
 	     }
-		}
 	}
 	
 	
@@ -112,18 +158,21 @@ public class MainActivity extends Activity {
 		
 		  	radioSleepGroup = (RadioGroup) findViewById(R.id.radioSleep);
 	        radioAppetiteGroup = (RadioGroup) findViewById(R.id.radioAppetite);
+	        radioTrouble2Sleep = (RadioGroup) findViewById(R.id.radio2sleep);
+	        
+	        checkPanickyButton=(CheckBox) findViewById(R.id.checkPanicky);
+	        checkHopelessButton=(CheckBox) findViewById(R.id.checkHopeless);
+	        checkRestlessButton=(CheckBox) findViewById(R.id.checkRestless);
+	        checkAngerButton=(CheckBox) findViewById(R.id.checkAnger);
+	        
 	        checkWorkButton=(CheckBox) findViewById(R.id.checkActivityWork);
 	        checkExerciseButton=(CheckBox) findViewById(R.id.checkActivityExercise);
 	        checkTVButton=(CheckBox) findViewById(R.id.checkActivityTV);
 	        checkLeaveButton=(CheckBox) findViewById(R.id.checkActivityLeave);
 	        
-	        
 	        checkHeadacheButton=(CheckBox) findViewById(R.id.checkSickHeadache);
-	        checkPanicButton=(CheckBox) findViewById(R.id.checkSickPanic);
-	        checkTiredButton=(CheckBox) findViewById(R.id.checkSickTired);
-	        checkRestlessButton=(CheckBox) findViewById(R.id.checkSickRestless);
-	        checkAngerButton=(CheckBox) findViewById(R.id.checkSickAnger);
-	        
+	        checkTiredButton=(CheckBox) findViewById(R.id.checkSickTiredness);
+	        checkSweatingButton=(CheckBox) findViewById(R.id.checkSickSweating); 
 	   
 		
 		//Alarm manager to start service
@@ -150,23 +199,31 @@ public class MainActivity extends Activity {
 		            // get selected radio button from radioGroup
 	                int selectedSleepId = radioSleepGroup.getCheckedRadioButtonId();
 	                int selectedAppetiteId = radioAppetiteGroup.getCheckedRadioButtonId();
+	                int selectedTrouble2SleepId = radioTrouble2Sleep.getCheckedRadioButtonId();
+	                
+	             // find the radiobutton by returned id
+	                radioSleepButton = (RadioButton) findViewById(selectedSleepId);
+	                radioAppetiteButton = (RadioButton) findViewById(selectedAppetiteId);
+	                radioTrouble2SleepButton = (RadioButton) findViewById(selectedTrouble2SleepId);
+	                
+	                String panicky=checkPanickyButton.isChecked()?"Yes":"No";
+	                String hopeless=checkHopelessButton.isChecked()?"Yes":"No";
+	                String restless=checkRestlessButton.isChecked()?"Yes":"No";
+	                String anger=checkAngerButton.isChecked()?"Yes":"No";
+	                String mood="\""+panicky+"\",\""+hopeless+"\",\""+restless+"\",\""+anger+"\"";
 	                
 	                String work=checkWorkButton.isChecked()?"Yes":"No";
 	                String exercise=checkExerciseButton.isChecked()?"Yes":"No";
 	                String tv=checkTVButton.isChecked()?"Yes":"No";
 	                String leave=checkLeaveButton.isChecked()?"Yes":"No";
 	                String activity="\""+work+"\",\""+exercise+"\",\""+tv+"\",\""+leave+"\"";
-	 
-	                String headache=checkHeadacheButton.isChecked()?"Yes":"No";
-	                String panic=checkPanicButton.isChecked()?"Yes":"No";
-	                String tired=checkTiredButton.isChecked()?"Yes":"No";
-	                String restless=checkRestlessButton.isChecked()?"Yes":"No";
-	                String anger=checkAngerButton.isChecked()?"Yes":"No";
-	                String mood="\""+headache+"\",\""+panic+"\",\""+tired+"\",\""+restless+"\",\""+anger+"\"";
 	                
-	                // find the radiobutton by returned id
-	                radioSleepButton = (RadioButton) findViewById(selectedSleepId);
-	                radioAppetiteButton = (RadioButton) findViewById(selectedAppetiteId);
+	                String headache=checkHeadacheButton.isChecked()?"Yes":"No";
+	                String tired=checkTiredButton.isChecked()?"Yes":"No";
+	                String sweating=checkSweatingButton.isChecked()?"Yes":"No";
+	                String physical="\""+headache+"\",\""+tired+"\",\""+sweating+"\"";
+	                
+	                
 	                
 	                //Toast.makeText(MainActivity.this,
 	                   //     radioSleepButton.getText(), Toast.LENGTH_SHORT).show();
@@ -180,7 +237,7 @@ public class MainActivity extends Activity {
 	                	String root = Environment.getExternalStorageDirectory().toString();
 	                	String fileName=root+ "/mhm_reality_mining/survey_data";
 	                    FileWriter f = new FileWriter(fileName,true);
-	                    f.append("\""+dateString+"\",\""+radioSleepButton.getText()+"\",\""+radioAppetiteButton.getText()+"\","+activity+","+mood+"\n");
+	                    f.append("\""+dateString+"\",\""+radioSleepButton.getText()+"\",\""+radioTrouble2SleepButton.getText()+"\",\""+radioAppetiteButton.getText()+"\","+mood+"\","+activity+","+physical+"\n");
 	                    f.close();
 	               
 	                } catch (Exception e) {

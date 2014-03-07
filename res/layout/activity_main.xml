@@ -67,12 +67,37 @@
                     android:layout_height="wrap_content"
                     android:text="Greater than 9" />
          		</RadioGroup>
+
+      			<TextView
+      			    android:id="@+id/tv2sleep"
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:textSize="16sp"
+      			    android:text="Did you have trouble sleeping yesterday night for more than 2 hours?" />
+      			
+      			<RadioGroup
+                android:id="@+id/radio2sleep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
          
+                <RadioButton
+                    android:id="@+id/yes2sleep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:checked="true" />
+         
+                <RadioButton
+                    android:id="@+id/no2sleep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No" />
+                </RadioGroup>
       			
       			<TextView
       			   android:layout_width="wrap_content"
       			   android:layout_height="wrap_content"
-      			   android:text="Did you have two proper meals today?"
+      			   android:text="Today I felt that"
       			   android:textSize="16sp"
       			 />
       
@@ -82,18 +107,52 @@
                 android:layout_height="wrap_content" >
          
                 <RadioButton
-                    android:id="@+id/yesMeal"
+                    android:id="@+id/overMeal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Yes"
-                    android:checked="true" />
+                    android:text="I had a constant urge to eat" />
          
                 <RadioButton
                     android:id="@+id/noMeal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No" />
+                    android:text="I did not feel like eating most of the time" />
+                
+                <RadioButton
+                    android:id="@+id/avgMeal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I had a regular appetite"
+                    android:checked="true" />
                 </RadioGroup>
+                
+      			<TextView
+      			   android:layout_width="wrap_content"
+      			   android:layout_height="wrap_content"
+      			   android:text="How was your Mood today? (Select all that apply)"
+      			   android:textSize="16sp"
+      			 />
+      			
+      			<CheckBox 	android:id="@+id/checkPanicky"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Panicky"			
+				/>
+      			<CheckBox 	android:id="@+id/checkHopeless"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Hopelessness/Worthlessness"			
+				/>
+      			<CheckBox 	android:id="@+id/checkRestless"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Restless"			
+				/>
+      			<CheckBox 	android:id="@+id/checkAnger"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Anger"			
+				/>
                 
       			<TextView
       			   android:layout_width="wrap_content"
@@ -105,9 +164,8 @@
       			<CheckBox 	android:id="@+id/checkActivityWork"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
-							android:text="Go to work/college"
-							
-				/>"
+							android:text="Go to work/college"			
+				/>
                 
                 <CheckBox 	android:id="@+id/checkActivityExercise"
 							android:layout_width="wrap_content"
@@ -128,34 +186,24 @@
                   <TextView
       			   android:layout_width="wrap_content"
       			   android:layout_height="wrap_content"
-      			   android:text="Did you suffer from any of these today? Select all that apply"
+      			   android:text="Did you suffer from any of these today? (Select all that apply)"
       			   android:textSize="16sp"
       			 />
                 
       			<CheckBox 	android:id="@+id/checkSickHeadache"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
-							android:text="Headache"
+							android:text="Excessive Headache"
 				/>
-      			<CheckBox 	android:id="@+id/checkSickPanic"
+      			<CheckBox 	android:id="@+id/checkSickTiredness"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
-							android:text="Panic attack"
+							android:text="Excessive Tiredness (Lack of energy)"
 				/>
-      			<CheckBox 	android:id="@+id/checkSickTired"
+      			<CheckBox 	android:id="@+id/checkSickSweating"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
-							android:text="Excessive tiredness"
-				/>
-      			<CheckBox 	android:id="@+id/checkSickRestless"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="Restlessness"
-				/>
-      			<CheckBox 	android:id="@+id/checkSickAnger"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="Anger"
+							android:text="Excessive Sweating (without any physical activity)"
 				/>
                   
             <Button
