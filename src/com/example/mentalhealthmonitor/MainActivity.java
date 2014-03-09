@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -193,7 +194,7 @@ public class MainActivity extends Activity {
 		        @Override
 		        public void onClick(View v) {
 		        	
-
+		        	startService(new Intent(getApplicationContext(), LockService.class));
 		            startService(new Intent(getBaseContext(), Service_class.class));
 		            
 		            // get selected radio button from radioGroup
