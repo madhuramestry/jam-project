@@ -9,6 +9,7 @@
       <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:orientation="vertical" >
         <TextView
       			    android:layout_width="wrap_content"
@@ -17,194 +18,444 @@
       			    android:textSize="30sp"
       			    android:textStyle="bold"
       			 />
+        
+        <TextView
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:text="0-Never"
+      			    android:textSize="20sp"
+      			    android:textStyle="bold"
+      			 />
+        
+        <TextView
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:text="1-Sometimes"
+      			    android:textSize="20sp"
+      			    android:textStyle="bold"
+      			 />
+        
+        <TextView
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:text="2-Often"
+      			    android:textSize="20sp"
+      			    android:textStyle="bold"
+      			 />
+        
+        <TextView
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:text="3-Almost Always"
+      			    android:textSize="20sp"
+      			    android:textStyle="bold"
+      			 />
         </LinearLayout>
        
         
   <ScrollView android:layout_width="wrap_content" android:layout_height="fill_parent">
          
    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical" >
+       android:layout_width="312dp"
+       android:layout_height="wrap_content"
+       android:layout_margin="5dp"
+       android:orientation="vertical" >
+        
+       <TextView
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:text="Mood"
+      			    android:textSize="20sp"
+      			 />
       
       			<TextView
       			    android:layout_width="wrap_content"
       			    android:layout_height="wrap_content"
-      			    android:text="How many hours did you sleep yesterday night?"
+      			    android:text="Unable to relax"
       			    android:textSize="16sp"
       			 />
       
       			<RadioGroup
-                android:id="@+id/radioSleep"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+      			    android:id="@+id/radioUpset"
+      			    android:layout_width="228dp"
+      			    android:layout_height="wrap_content"
+      			    android:orientation="horizontal" >
          
                 <RadioButton
-                    android:id="@+id/lessthan7"
+                    android:id="@+id/zeroU"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Less than 7"
+                    
+                    android:text="0"
                     android:checked="true" />
          
                 <RadioButton
-                    android:id="@+id/seven"
+                    android:id="@+id/oneU"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="7" />
+                   
+                    android:text="1" />
                 <RadioButton
-                    android:id="@+id/eight"
+                    android:id="@+id/twoU"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="8" />
+                  
+                    android:text="2" />
                 <RadioButton
-                    android:id="@+id/nine"
+                    android:id="@+id/threeU"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="9" />
-                <RadioButton
-                    android:id="@+id/greaterthan9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Greater than 9" />
-         		</RadioGroup>
-
+                    
+                    android:text="3" />
+                </RadioGroup>
+                
+      			
       			<TextView
-      			    android:id="@+id/tv2sleep"
       			    android:layout_width="wrap_content"
       			    android:layout_height="wrap_content"
+      			    android:text="Feeling negative and sad"
       			    android:textSize="16sp"
-      			    android:text="Did you have trouble sleeping yesterday night for more than 2 hours?" />
-      			
-      			<RadioGroup
-                android:id="@+id/radio2sleep"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-         
-                <RadioButton
-                    android:id="@+id/yes2sleep"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Yes"
-                    android:checked="true" />
-         
-                <RadioButton
-                    android:id="@+id/no2sleep"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="No" />
-                </RadioGroup>
-      			
-      			<TextView
-      			   android:layout_width="wrap_content"
-      			   android:layout_height="wrap_content"
-      			   android:text="Today I felt that"
-      			   android:textSize="16sp"
       			 />
       
       			<RadioGroup
-                android:id="@+id/radioAppetite"
+                android:id="@+id/radioNegative"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
          
                 <RadioButton
-                    android:id="@+id/overMeal"
+                    android:id="@+id/zeroN"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="I had a constant urge to eat" />
-         
-                <RadioButton
-                    android:id="@+id/noMeal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="I did not feel like eating most of the time" />
-                
-                <RadioButton
-                    android:id="@+id/avgMeal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="I had a regular appetite"
+                    android:text="0"
                     android:checked="true" />
+         
+                <RadioButton
+                    android:id="@+id/oneN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1" />
+                <RadioButton
+                    android:id="@+id/twoN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2" />
+                <RadioButton
+                    android:id="@+id/threeN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3" />
                 </RadioGroup>
                 
       			<TextView
-      			   android:layout_width="wrap_content"
-      			   android:layout_height="wrap_content"
-      			   android:text="How was your Mood today? (Select all that apply)"
-      			   android:textSize="16sp"
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:text="No motivation or enthusiasm"
+      			    android:textSize="16sp"
       			 />
+      
+      			<RadioGroup
+                android:id="@+id/radioMotivation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+         
+                <RadioButton
+                    android:id="@+id/zeroM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:checked="true" />
+         
+                <RadioButton
+                    android:id="@+id/oneM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1" />
+                <RadioButton
+                    android:id="@+id/twoM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2" />
+                <RadioButton
+                    android:id="@+id/threeM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3" />
+                </RadioGroup>
+         		
+      			<TextView
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:text="Overreaction or agitation"
+      			    android:textSize="16sp"
+      			 />
+      
+      			<RadioGroup
+                android:id="@+id/radioO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+         
+                <RadioButton
+                    android:id="@+id/zeroO"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:checked="true" />
+         
+                <RadioButton
+                    android:id="@+id/oneO"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1" />
+                <RadioButton
+                    android:id="@+id/twoO"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2" />
+                <RadioButton
+                    android:id="@+id/threeO"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3" />
+                </RadioGroup>
       			
-      			<CheckBox 	android:id="@+id/checkPanicky"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="Panicky"			
-				/>
-      			<CheckBox 	android:id="@+id/checkHopeless"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="Hopelessness/Worthlessness"			
-				/>
-      			<CheckBox 	android:id="@+id/checkRestless"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="Restless"			
-				/>
-      			<CheckBox 	android:id="@+id/checkAnger"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="Anger"			
-				/>
+      			<TextView
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:text="Panic"
+      			    android:textSize="16sp"
+      			 />
+      
+      			<RadioGroup
+                android:id="@+id/radioPanic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+         
+                <RadioButton
+                    android:id="@+id/zeroP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:checked="true" />
+         
+                <RadioButton
+                    android:id="@+id/oneP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1" />
+                <RadioButton
+                    android:id="@+id/twoP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2" />
+                <RadioButton
+                    android:id="@+id/threeP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3" />
+                </RadioGroup>
+      			
+      			<TextView
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:text="Worthlessness"
+      			    android:textSize="16sp"
+      			 />
+      
+      			<RadioGroup
+                android:id="@+id/radioWorthless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+         
+                <RadioButton
+                    android:id="@+id/zeroW"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:checked="true" />
+         
+                <RadioButton
+                    android:id="@+id/oneW"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1" />
+                <RadioButton
+                    android:id="@+id/twoW"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2" />
+                <RadioButton
+                    android:id="@+id/threeW"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3" />
+                </RadioGroup>
+      			
+      		
+                
+      				<TextView
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:text="Physical symptoms"
+      			    android:textSize="20sp"
+      			 />
                 
       			<TextView
-      			   android:layout_width="wrap_content"
-      			   android:layout_height="wrap_content"
-      			   android:text="Select the activities that you did today."
-      			   android:textSize="16sp"
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:text="Dry mouth"
+      			    android:textSize="16sp"
       			 />
+      
+      			<RadioGroup
+                android:id="@+id/radioDry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+         
+                <RadioButton
+                    android:id="@+id/zeroD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:checked="true" />
+         
+                <RadioButton
+                    android:id="@+id/oneD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1" />
+                <RadioButton
+                    android:id="@+id/twoD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2" />
+                <RadioButton
+                    android:id="@+id/threeD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3" />
+                </RadioGroup>
                 
-      			<CheckBox 	android:id="@+id/checkActivityWork"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="Go to work/college"			
-				/>
-                
-                <CheckBox 	android:id="@+id/checkActivityExercise"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="Exercise"
-				/>
-                
-                <CheckBox 	android:id="@+id/checkActivityTV"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="Watch TV/ Use a computer"
-				/>
-                <CheckBox 	android:id="@+id/checkActivityLeave"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="Leave house for more than 2 hours for other work"
-				/>
-                  <TextView
-      			   android:layout_width="wrap_content"
-      			   android:layout_height="wrap_content"
-      			   android:text="Did you suffer from any of these today? (Select all that apply)"
-      			   android:textSize="16sp"
+      			<TextView
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:text="Difficulty in breathing"
+      			    android:textSize="16sp"
       			 />
+      
+      			<RadioGroup
+                android:id="@+id/radioBreath"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+         
+                <RadioButton
+                    android:id="@+id/zeroB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:checked="true" />
+         
+                <RadioButton
+                    android:id="@+id/oneB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1" />
+                <RadioButton
+                    android:id="@+id/twoB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2" />
+                <RadioButton
+                    android:id="@+id/threeB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3" />
+                </RadioGroup>
                 
-      			<CheckBox 	android:id="@+id/checkSickHeadache"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="Excessive Headache"
-				/>
-      			<CheckBox 	android:id="@+id/checkSickTiredness"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="Excessive Tiredness (Lack of energy)"
-				/>
-      			<CheckBox 	android:id="@+id/checkSickSweating"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:text="Excessive Sweating (without any physical activity)"
-				/>
+      			<TextView
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:text="Trembling in limbs"
+      			    android:textSize="16sp"
+      			 />
+      
+      			<RadioGroup
+                android:id="@+id/radioTrembling"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+         
+                <RadioButton
+                    android:id="@+id/zeroT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:checked="true" />
+         
+                <RadioButton
+                    android:id="@+id/oneT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1" />
+                <RadioButton
+                    android:id="@+id/twoT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2" />
+                <RadioButton
+                    android:id="@+id/threeT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3" />
+                </RadioGroup>
+                
+      			
+      			<TextView
+      			    android:layout_width="wrap_content"
+      			    android:layout_height="wrap_content"
+      			    android:text="Heart palpitations"
+      			    android:textSize="16sp"
+      			 />
+      
+      			<RadioGroup
+                android:id="@+id/radioHeart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+         
+                <RadioButton
+                    android:id="@+id/zeroH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:checked="true" />
+         
+                <RadioButton
+                    android:id="@+id/oneH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1" />
+                <RadioButton
+                    android:id="@+id/twoH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2" />
+                <RadioButton
+                    android:id="@+id/threeH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3" />
+                </RadioGroup>
+                
+      			
+      			
+      		
                   
             <Button
                 android:id="@+id/button1"

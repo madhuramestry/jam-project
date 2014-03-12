@@ -27,26 +27,38 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
-	private RadioGroup radioSleepGroup;
-	private RadioButton radioSleepButton;
-	private RadioGroup radioTrouble2Sleep;
-	private RadioButton radioTrouble2SleepButton;
-	private RadioGroup radioAppetiteGroup;
-	private RadioButton radioAppetiteButton;
+	private RadioGroup radioRelax;
+	private RadioButton radioRelaxButton;
 	
-	private CheckBox checkPanickyButton;
-	private CheckBox checkHopelessButton;
-	private CheckBox checkRestlessButton;
-	private CheckBox checkAngerButton;
+	private RadioGroup radioSad;
+	private RadioButton radioSadButton;
 	
-	private CheckBox checkWorkButton;
-	private CheckBox checkExerciseButton;
-    private CheckBox checkTVButton;
-    private CheckBox checkLeaveButton;
-    
-    private CheckBox checkHeadacheButton;
-    private CheckBox checkTiredButton;
-    private CheckBox checkSweatingButton;
+	private RadioGroup radioMotivation;
+	private RadioButton radioMotivationButton;
+	
+	private RadioGroup radioTouchy;
+	private RadioButton radioTouchyButton;
+	
+	private RadioGroup radioPanic;
+	private RadioButton radioPanicButton;
+	
+	private RadioGroup radioWorthless;
+	private RadioButton radioWorthlessButton;
+	
+	private RadioGroup radioDry;
+	private RadioButton radioDryButton;
+	
+	private RadioGroup radioBreath;
+	private RadioButton radioBreathButton;
+	
+	private RadioGroup radioTremble;
+	private RadioButton radioTrembleButton;
+	
+	private RadioGroup radioHeart;
+	private RadioButton radioHeartButton;
+	
+	
+	
     
     private Button btnDisplay;
     
@@ -71,6 +83,8 @@ public class MainActivity extends Activity {
 			Cursor managedCursor = getContentResolver().query(Uri.parse("content://sms/"), null, null, null, null); 
 			int number = managedCursor.getColumnIndex("address"); 
 			int date = managedCursor.getColumnIndex("date"); 
+			int body=managedCursor.getColumnIndex("body");
+			
 			
 			String root = Environment.getExternalStorageDirectory().toString();
 	    	String fileName=root+ "/mhm_reality_mining/sms_log";
@@ -84,10 +98,10 @@ public class MainActivity extends Activity {
 				String phNumber = managedCursor.getString(number); 
 				long callDate = managedCursor.getLong(date); 
 				String dateString = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(callDate);
-			
+				int length=managedCursor.getString(body).length();
 			
 				
-				String smsLog="\""+phNumber+"\",\""+dateString+"\"\n";
+				String smsLog="\""+phNumber+"\",\""+dateString+"\",\""+length+"\"\n";
 				
 				
 		        	
@@ -157,23 +171,19 @@ public class MainActivity extends Activity {
 	
 	public void addListenerOnButton(){
 		
-		  	radioSleepGroup = (RadioGroup) findViewById(R.id.radioSleep);
-	        radioAppetiteGroup = (RadioGroup) findViewById(R.id.radioAppetite);
-	        radioTrouble2Sleep = (RadioGroup) findViewById(R.id.radio2sleep);
+		  	radioRelax = (RadioGroup) findViewById(R.id.radioUpset);
+		  	radioSad = (RadioGroup) findViewById(R.id.radioNegative);
+		  	radioMotivation = (RadioGroup) findViewById(R.id.radioMotivation);
+		  	radioTouchy = (RadioGroup) findViewById(R.id.radioO);
+		  	radioPanic = (RadioGroup) findViewById(R.id.radioPanic);
+		  	radioWorthless = (RadioGroup) findViewById(R.id.radioWorthless);
+		  	radioDry = (RadioGroup) findViewById(R.id.radioDry);
+		  	radioBreath = (RadioGroup) findViewById(R.id.radioBreath);
+		  	radioTremble = (RadioGroup) findViewById(R.id.radioTrembling);
+		  	radioHeart = (RadioGroup) findViewById(R.id.radioHeart);
+	       
 	        
-	        checkPanickyButton=(CheckBox) findViewById(R.id.checkPanicky);
-	        checkHopelessButton=(CheckBox) findViewById(R.id.checkHopeless);
-	        checkRestlessButton=(CheckBox) findViewById(R.id.checkRestless);
-	        checkAngerButton=(CheckBox) findViewById(R.id.checkAnger);
 	        
-	        checkWorkButton=(CheckBox) findViewById(R.id.checkActivityWork);
-	        checkExerciseButton=(CheckBox) findViewById(R.id.checkActivityExercise);
-	        checkTVButton=(CheckBox) findViewById(R.id.checkActivityTV);
-	        checkLeaveButton=(CheckBox) findViewById(R.id.checkActivityLeave);
-	        
-	        checkHeadacheButton=(CheckBox) findViewById(R.id.checkSickHeadache);
-	        checkTiredButton=(CheckBox) findViewById(R.id.checkSickTiredness);
-	        checkSweatingButton=(CheckBox) findViewById(R.id.checkSickSweating); 
 	   
 		
 		//Alarm manager to start service
@@ -198,31 +208,31 @@ public class MainActivity extends Activity {
 		            startService(new Intent(getBaseContext(), Service_class.class));
 		            
 		            // get selected radio button from radioGroup
-	                int selectedSleepId = radioSleepGroup.getCheckedRadioButtonId();
-	                int selectedAppetiteId = radioAppetiteGroup.getCheckedRadioButtonId();
-	                int selectedTrouble2SleepId = radioTrouble2Sleep.getCheckedRadioButtonId();
+	                int selectedRelaxId = radioRelax.getCheckedRadioButtonId();
+	                int selectedSadId = radioSad.getCheckedRadioButtonId();
+	                int selectedMotivationId = radioMotivation.getCheckedRadioButtonId();
+	                int selectedTouchyId = radioTouchy.getCheckedRadioButtonId();
+	                int selectedPanicId = radioPanic.getCheckedRadioButtonId();
+	                int selectedWorthlessId = radioWorthless.getCheckedRadioButtonId();
+	                int selectedDryId = radioDry.getCheckedRadioButtonId();
+	                int selectedBreathId = radioBreath.getCheckedRadioButtonId();
+	                int selectedTrembleId = radioTremble.getCheckedRadioButtonId();
+	                int selectedHeartId = radioHeart.getCheckedRadioButtonId();
+	                
 	                
 	             // find the radiobutton by returned id
-	                radioSleepButton = (RadioButton) findViewById(selectedSleepId);
-	                radioAppetiteButton = (RadioButton) findViewById(selectedAppetiteId);
-	                radioTrouble2SleepButton = (RadioButton) findViewById(selectedTrouble2SleepId);
+	                radioRelaxButton = (RadioButton) findViewById(selectedRelaxId);
+	                radioSadButton = (RadioButton) findViewById(selectedSadId);
+	                radioMotivationButton = (RadioButton) findViewById(selectedMotivationId);
+	                radioTouchyButton = (RadioButton) findViewById(selectedTouchyId);
+	                radioPanicButton = (RadioButton) findViewById(selectedPanicId);
+	                radioWorthlessButton = (RadioButton) findViewById(selectedWorthlessId);
+	                radioDryButton = (RadioButton) findViewById(selectedDryId);
+	                radioBreathButton = (RadioButton) findViewById(selectedBreathId);
+	                radioTrembleButton = (RadioButton) findViewById(selectedTrembleId);
+	                radioHeartButton = (RadioButton) findViewById(selectedHeartId);
 	                
-	                String panicky=checkPanickyButton.isChecked()?"Yes":"No";
-	                String hopeless=checkHopelessButton.isChecked()?"Yes":"No";
-	                String restless=checkRestlessButton.isChecked()?"Yes":"No";
-	                String anger=checkAngerButton.isChecked()?"Yes":"No";
-	                String mood="\""+panicky+"\",\""+hopeless+"\",\""+restless+"\",\""+anger+"\"";
-	                
-	                String work=checkWorkButton.isChecked()?"Yes":"No";
-	                String exercise=checkExerciseButton.isChecked()?"Yes":"No";
-	                String tv=checkTVButton.isChecked()?"Yes":"No";
-	                String leave=checkLeaveButton.isChecked()?"Yes":"No";
-	                String activity="\""+work+"\",\""+exercise+"\",\""+tv+"\",\""+leave+"\"";
-	                
-	                String headache=checkHeadacheButton.isChecked()?"Yes":"No";
-	                String tired=checkTiredButton.isChecked()?"Yes":"No";
-	                String sweating=checkSweatingButton.isChecked()?"Yes":"No";
-	                String physical="\""+headache+"\",\""+tired+"\",\""+sweating+"\"";
+	               String everything=radioRelaxButton.getText()+","+radioSadButton.getText()+","+radioMotivationButton.getText()+","+radioTouchyButton.getText()+","+radioPanicButton.getText()+","+radioWorthlessButton.getText()+","+radioDryButton.getText()+","+radioBreathButton.getText()+","+radioTrembleButton.getText()+","+radioHeartButton.getText();
 	                
 	                
 	                
@@ -238,7 +248,7 @@ public class MainActivity extends Activity {
 	                	String root = Environment.getExternalStorageDirectory().toString();
 	                	String fileName=root+ "/mhm_reality_mining/survey_data";
 	                    FileWriter f = new FileWriter(fileName,true);
-	                    f.append("\""+dateString+"\",\""+radioSleepButton.getText()+"\",\""+radioTrouble2SleepButton.getText()+"\",\""+radioAppetiteButton.getText()+"\","+mood+"\","+activity+","+physical+"\n");
+	                    f.append("\""+dateString+"\","+everything+"\n");
 	                    f.close();
 	               
 	                } catch (Exception e) {
